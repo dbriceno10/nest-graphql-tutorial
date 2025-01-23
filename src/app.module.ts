@@ -12,6 +12,23 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      introspection: false,
+      playground: {
+        settings: {
+          'editor.cursorShape': 'line', // other options: 'block', 'underline'
+          'editor.fontFamily': 'Consolas, "Courier New", monospace',
+          'editor.fontSize': 14,
+          'editor.reuseHeaders': true, // new setting
+          'editor.theme': 'dark', // other options: 'light'
+          'general.betaUpdates': false,
+          'queryPlan.hideQueryPlanResponse': false,
+          'request.credentials': 'omit',
+          'schema.polling.enable': false, // Disable schema polling
+          'schema.polling.endpointFilter': '*localhost*',
+          'schema.polling.interval': 2000,
+          // 'schema.disableComments': true, // Disable tooltips
+        },
+      },
     }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
