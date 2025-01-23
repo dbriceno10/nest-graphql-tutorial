@@ -1,7 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { PostsService } from './posts.service';
 import { Post } from './post.entity';
-import { CreatePostInput } from './dto-create-post.input';
+import { CreatePostInput } from './dto/create-post.input';
 
 @Resolver()
 export class PostsResolver {
